@@ -1,0 +1,28 @@
+/* header styles */
+      /* an element selector  */
+ header {
+     /* properties i.e ; */
+      /* 1. background-color
+       2. color : font-color */
+    background-color: black;  /* values -hex*/
+
+    color: #fff;
+    color: rgb(255,255,255)  /* values-rgba */;
+
+       /* box model  */
+       /* every html elements lives in a box model 
+         the box has structure */
+          /* content, padding ,border ,margin */
+       /* css units of measure
+       1.absolute (fixed -px , cm)
+       2.relative  units (%) OF THE PARENT*/
+
+    padding-top:10px ;
+    padding-bottom:10px ;
+    padding-right:10px ;
+    padding-left:10px ;
+
+
+    padding: 10px; /*shorthand of lines 20-23*/
+
+ }
