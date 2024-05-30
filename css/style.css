@@ -1,5 +1,6 @@
 /* header styles */
       /* an element selector  */
+    
  header {
      /* properties i.e ; */
       /* 1. background-color
@@ -24,5 +25,52 @@
 
 
     padding: 10px; /*shorthand of lines 20-23*/
+        /* FLEX BOX MODEL */
+    display:flex ;
+    align-items: center;
+    justify-content: space-between;
+
+
+         /* FIX HEADER TO PREVENT SCROLLING */
+         position: fixed;
+         top: 0;
+          right: 0;
+          left: 0;
+          z-index: 0; /*To Do What is this*/
+          transition: top 0.3s; /*What does this do*/
+
 
  }
+
+          /* TODO What selector is this? */
+.logo img {
+   max-width: 100px;
+   border-radius: 10px;
+}
+                /* Class Selector */
+  .menu{
+ display: flex;
+ align-items: center;
+  }
+  .menu a{
+   color: rgb(205, 174, 235);
+   text-decoration:none;
+   /* margin-left: 150px; */
+
+      /* setting padding  */
+       padding: 10px;
+
+            /* setting display to flex */
+            display: flex;
+            align-items: center;
+  }
+       /* PSEUDO SELECTORS E.G HOVER  */
+      .menu a:hover {
+         background-color:orangered;
+         cursor: pointer;
+      }
+
+          
+ 
+
+
