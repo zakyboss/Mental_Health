@@ -36,7 +36,7 @@
          top: 0;
           right: 0;
           left: 0;
-          z-index: 0; /*To Do What is this*/
+          z-index: 1; /*To Do What is this*/
           transition: top 0.3s; /*What does this do*/
 
 
@@ -70,7 +70,80 @@
          cursor: pointer;
       }
 
-          
+        /* ASSIGNMENT  Starts here */
+
+/* Slideshow styles */
+.slideshow{ /* a class selector */
+   max-width:800px; /* Sets the maximum width of the slideshow */
+   margin : 0 auto; /* Centers the slideshow horizontally */
+   position: relative;
+}
+.slide{ /* it is a class selector */
+   display: block; /* Makes each slide a block-level element */
+   text-align: center;
+}
+
+   .slide img{ /* descendant selector / combine selector*/
+      max-width: 100%; /* Ensures the image does not exceed the container's width */
+      height: auto; /*Sets the height as the auto height */
+   }       
  
+.prev,.next{ /* is a  grouped selector */
+   position: absolute;  /* Sets the position of the element absolutely within its container element element */
+   top: 50%;
+   transform: translateY(-50%); 
+   padding: 16px;
+   font-size: 24px; /* Sets the size of the font */
+   font-weight: bold;
+   color: #fff;
+   background-color: rgba(0,0,0,0.5);
+   cursor: pointer; /* Sets the cursor as a pointor from arrow */
+   border-radius: 3px; /* Sets the radius of the arrow */
+}
+.next{ /*is a  class selector */
+   right: 0; /* Positions the "next" button on the right */
+}
+.dot { /* a class selector */
+   height: 10px;  /*Sets the height of the dot */
+   width: 10px; /* sets the width */
+   margin: 0 2px;
+   background-color: #bbb;
+   border-radius: 50%;
+   display: inline-block; /* Makes the dot an inline block element */
+   transition: background-color 0.6s ease;
+}
 
+.active, .dot:hover{ /* is a class selector and pseudo-class selector */
+   background-color: #ffc100; /* Changes the background color when active or hovered */
+}
 
+/* The content styling */
+.content{ /* class selector */
+   padding: 80px 20px 20px 20px; /* Adds padding inside the content area */
+}
+h3 { /*an  element selector */
+   font-weight: bolder; /* Makes the text bold */
+}
+h3#first{ /*an  element with ID selector */
+   color: #ff0472;
+}
+h3#second{ /* an element with ID selector */
+   color: #ffc100;
+}
+h3#third{ /* an element with ID selector */
+   color: #2ad495;
+}
+.button { /* class selector */
+   background-color: #ff0472;
+   color: white; /* Sets the text color to white */
+   padding: 10px 20px;
+   text-decoration: none; /* Removes underline from text links */
+   border-radius: 5px;
+}
+
+footer { /* an  element selector */ 
+   background-color: #020e09;
+   color: white;
+   padding: 20px; /* puts padding around the footer container */
+   text-align: center; /* aligns the text in the footer container in the  */
+}
