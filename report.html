@@ -1,1 +1,266 @@
-self report forms
+<!DOCTYPE html>
+<html>
+<head>
+<Title>Contact us</Title>
+       <!-- charset -->
+<meta charset="UTF-8">
+           <!-- Description -->
+  <meta name="description" content="A website about mental health specifically depression">
+         <!-- Author  -->
+  <meta name="author" content="Zakariya Mohamed">
+          <!-- viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="assets/images/favicon.png">
+
+   <!-- Adding font awesome icon links  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/solid.min.css" integrity="sha512-Hp+WwK4QdKZk9/W0ViDvLunYjFrGJmNDt6sCflZNkjgvNq9mY+0tMbd6tWMiAlcf1OQyqL4gn2rYp7UsfssZPA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+ </head>
+  <!-- Our Page Content Goes Here -->
+ <body>
+     <!-- Heder section -->
+     <header >
+      <div class="logo">
+          <a href="#">
+              <img src="assets/images/logo.png" alt="logo" srcset="" >
+             </a>
+      </div>
+          <!-- Navigation -->
+
+         <nav class="menu">
+             <!-- home link -->
+             
+             <a href="index.html">
+  <i class="fa fa-home"></i> Home
+             </a>
+
+             
+           <!-- About  link -->
+          <a href="about.html">
+            <i class=" fa-solid fa-circle-info"></i> About Us
+              </a>
+
+             <!-- our professionals link -->
+             <a href="mhp.html">
+                 <i class="fa-solid fa-handshake-angle"></i> Get Help
+                            </a>
+        
+
+             <!-- Report link -->
+             <a href="report.html">
+                 <i class="fa-solid fa-people-group"></i> Check Status
+             </a>
+
+             
+             <!-- Contacts link -->
+             <a href="contact.html">
+  <i class="fa-sharp fa-solid fa-envelope"></i> Contact Us 
+             </a>
+
+         </nav>
+</div>
+     </header>
+
+     <section  style="margin-top: 130px; border: solid,black , 2px;">
+        <h1>PHQ-8 Depression Screening</h1>
+        <p>The Tune Me UP questionnaire (PHQ-8) is a self-assessment you can use to check your status.</p>
+        <form action="">
+            <div style="display: flex;">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" style="width: 250px;" placeholder="Please Enter Your Name">
+
+                <label for="DOB" style="margin-left: 20px;">Date Of Birth:</label>
+                <input type="text" id="DOB" name="DOB" style="width: 250px;" placeholder="Please Enter Date of Birth">
+
+                <label for="dateToday" style="margin-left: 20px;">Today's Date:</label>
+                <input type="text" id="dateToday" name="dateToday" style="width: 250px;" placeholder="Please Enter Today's Date">
+            </div>
+            <br>
+  
+            <div style="border: solid black 2px; padding: 10px; margin-bottom: 15px;">
+                <div style="margin-bottom: 10px;">
+                    <label for="interest" style="color: purple;">Little interest or Pleasure In Doing Things</label>
+                </div>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="interest" value="notAtAll"> Not at all
+                    </label>
+                    <label>
+                        <input type="radio" name="interest" value="severalDays"> Several days
+                    </label>
+                    <label>
+                        <input type="radio" name="interest" value="moreThanHalfTheDay"> More than half the day
+                    </label>
+                    <label>
+                        <input type="radio" name="interest" value="nearlyEveryDay"> Nearly Every Day
+                    </label>
+                </div>
+            </div>
+
+            <div style="border: solid black 2px; padding: 10px; margin-bottom: 15px;">
+                <div style="margin-bottom: 10px;">
+                    <label for="depressed" style="color: purple;">Feeling down depressed and hopeless</label>
+                </div>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="depressed" value="notAtAll"> Not at all
+                    </label>
+                    <label>
+                        <input type="radio" name="depressed" value="severalDays"> Several days
+                    </label>
+                    <label>
+                        <input type="radio" name="depressed" value="moreThanHalfTheDay"> More than half the day
+                    </label>
+                    <label>
+                        <input type="radio" name="depressed" value="nearlyEveryDay"> Nearly Every Day
+                    </label>
+                </div>
+            </div>
+
+            <div style="border: solid black 2px; padding: 10px; margin-bottom: 15px;">
+                <div style="margin-bottom: 10px;">
+                    <label for="sleep" style="color: purple;">Trouble Falling asleep or sleeping too much</label>
+                </div>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="sleep" value="notAtAll"> Not at all
+                    </label>
+                    <label>
+                        <input type="radio" name="sleep" value="severalDays"> Several days
+                    </label>
+                    <label>
+                        <input type="radio" name="sleep" value="moreThanHalfTheDay"> More than half the day
+                    </label>
+                    <label>
+                        <input type="radio" name="sleep" value="nearlyEveryDay"> Nearly Every Day
+                    </label>
+                </div>
+            </div>
+
+            <div style="border: solid black 2px; padding: 10px; margin-bottom: 15px;">
+                <div style="margin-bottom: 10px;">
+                    <label for="energy" style="color: purple;">Feeling Tired or Little Energy</label>
+                </div>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="energy" value="notAtAll"> Not at all
+                    </label>
+                    <label>
+                        <input type="radio" name="energy" value="severalDays"> Several days
+                    </label>
+                    <label>
+                        <input type="radio" name="energy" value="moreThanHalfTheDay"> More than half the day
+                    </label>
+                    <label>
+                        <input type="radio" name="energy" value="nearlyEveryDay"> Nearly Every Day
+                    </label>
+                </div>
+            </div>
+
+            <div style="border: solid black 2px; padding: 10px; margin-bottom: 15px;">
+                <div style="margin-bottom: 10px;">
+                    <label for="appetite" style="color: purple;">Poor appetite or Eating too much</label>
+                </div>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="appetite" value="notAtAll"> Not at all
+                    </label>
+                    <label>
+                        <input type="radio" name="appetite" value="severalDays"> Several days
+                    </label>
+                    <label>
+                        <input type="radio" name="appetite" value="moreThanHalfTheDay"> More than half the day
+                    </label>
+                    <label>
+                        <input type="radio" name="appetite" value="nearlyEveryDay"> Nearly Every Day
+                    </label>
+                </div>
+            </div>
+
+            <div style="border: solid black 2px; padding: 10px; margin-bottom: 15px;">
+                <div style="margin-bottom: 10px;">
+                    <label for="failure" style="color: purple;">Feeling bad about yourself or that you are a failure or have let yourself or family down</label>
+                </div>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="failure" value="notAtAll"> Not at all
+                    </label>
+                    <label>
+                        <input type="radio" name="failure" value="severalDays"> Several days
+                    </label>
+                    <label>
+                        <input type="radio" name="failure" value="moreThanHalfTheDay"> More than half the day
+                    </label>
+                    <label>
+                        <input type="radio" name="failure" value="nearlyEveryDay"> Nearly Every Day
+                    </label>
+                </div>
+            </div>
+
+            <div style="border: solid black 2px; padding: 10px; margin-bottom: 15px;">
+                <div style="margin-bottom: 10px;">
+                    <label for="concentration" style="color: purple;">Trouble concentrating such as reading newspapers or watching television</label>
+                </div>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="concentration" value="notAtAll"> Not at all
+                    </label>
+                    <label>
+                        <input type="radio" name="concentration" value="severalDays"> Several days
+                    </label>
+                    <label>
+                        <input type="radio" name="concentration" value="moreThanHalfTheDay"> More than half the day
+                    </label>
+                    <label>
+                        <input type="radio" name="concentration" value="nearlyEveryDay"> Nearly Every Day
+                    </label>
+                </div>
+            </div>
+
+
+
+            <div style="border: solid black 2px; padding: 10px; margin-bottom: 15px;">
+                <div style="margin-bottom: 10px;">
+                    <label for="movement"style="color: purple;">Moving or speaking so slowly that other people could have noticed or opposite being so fidgety or restless that you have been moving around more than usual</label>
+                </div>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="concentration" value="notAtAll"> Not at all
+                    </label>
+                    <label>
+                        <input type="radio" name="concentration" value="severalDays"> Several days
+                    </label>
+                    <label>
+                        <input type="radio" name="concentration" value="moreThanHalfTheDay"> More than half the day
+                    </label>
+                    <label>
+                        <input type="radio" name="concentration" value="nearlyEveryDay"> Nearly Every Day
+                    </label>
+                </div>
+            </div>
+
+<button style="background-color: green; padding: 12px; border-radius: 20px; color: white;margin-left: 300px; margin-top: -10px;" type="button">
+    Submit
+</button>
+
+
+
+</div>
+
+
+    </form>
+</section>
+
+
+     
+     <br><br>
+     <footer>
+        Tune Me Up &copy; 2024
+        
+                       </footer>
+     </body>
+     </html>
