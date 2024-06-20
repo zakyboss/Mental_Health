@@ -1,27 +1,49 @@
-// Inbuilt function
+//inbuilt function
+//alert('There is hope.');
 
-alert("Jambo Bwana")
+//DOM
 
-//DOM 
+//Events
+// - User
+// - Network
+// - Broswer
 
-// EVENTS 
-/* 
-user events 
-browser events 
-network events */
+//Get element of interest
+//Variable declaration done with var keyword
+//case sensitive
+//var joinButton = document.getElementById('join-button');
 
+//DOM - Document Object Model (document)
+//in js this is an object
+//console.log(joinButton);
+//console.log(document);
 
-// get element of interest 
-// varibale declaration using the var keyword 
-// case-sensitive joinButton is different from JoinButton
+//joinButton.addEventListener('mouseover', function(){
+//console.log('Someone is thinking of joining');
+//});
+// Slideshow functionality
+var slideIndex = 1;
+showSlides(slideIndex);
 
-var joinButton = document.getElementById("join-Button");
-//DOM Document Object Model (document)
-// in js this is an object 
-// joinButton.onclick(alert("You have Joined the goats "))
-console.log (joinButton)
-console.log(document)
-// The event listener is called when the user hovers on the join button 
-joinButton,addEventListener("mouseover",function () {
-    console.log("Someone is interested to join");
-} )
+function plusSlides(n) {
+showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+showSlides(slideIndex = n);
+}
+function showSlides(n) {
+var i;
+var slides = document.getElementsByClassName('slide');
+var dots = document.getElementsByClassName('dot');
+if (n >slides.length) { slideIndex = 1 }
+if (n < 1) { slideIndex = slides.length }
+for (i = 0; i < slides.length; i++) {
+slides[i].style.display = 'none';
+}
+for (i = 0; i < dots.length; i++) {
+dots[i].className = dots[i].className.replace('active', '');
+}
+slides[slideIndex - 1].style.display = 'block';
+dots[slideIndex - 1].className += 'active';
+}
