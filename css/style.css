@@ -1,11 +1,13 @@
 /* header styles */
       /* an element selector  */
-    
- header {
+    * body {
+background-color:rgb(221, 214, 214);
+    }
+      header {
      /* properties i.e ; */
       /* 1. background-color
        2. color : font-color */
-    background-color: black;  /* values -hex*/
+    background-color:black;  /* values -hex*/
 
     color: #fff;
     color: rgb(255,255,255)  /* values-rgba */;
@@ -18,10 +20,10 @@
        1.absolute (fixed -px , cm)
        2.relative  units (%) OF THE PARENT*/
 
-    padding-top:10px ;
+    /* padding-top:10px ;
     padding-bottom:10px ;
     padding-right:10px ;
-    padding-left:10px ;
+    padding-left:10px ; */
 
 
     padding: 10px; /*shorthand of lines 20-23*/
@@ -79,7 +81,7 @@
    position: relative;
 }
 .slide{ /* it is a class selector */
-   display: block; /* Makes each slide a block-level element */
+   display: none; /* Makes each slide a block-level element */
    text-align: center;
 }
 
@@ -142,7 +144,7 @@ h3#third{ /* an element with ID selector */
 }
 
 footer { /* an  element selector */ 
-   background-color: #020e09;
+   background-color:#1a1a2e;
    color: white;
    padding: 20px; /* puts padding around the footer container */
    text-align: center; /* aligns the text in the footer container in the  */

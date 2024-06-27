@@ -72,32 +72,30 @@
     </div>
 
 
-    <div class="form-div" style="width: 30%; background-color :rgb(221, 214, 214);">
-        <form action="">
-            <div style="margin-bottom: 15px;margin-top: 20px;">
+    <div class="form-div" style="width: 30%; background-color: rgb(221, 214, 214); margin: 20px auto; padding: 20px;">
+        <form class="contact-form" method="POST" action="php/contact.php" onsubmit="return checkFormSubmission(event)">
+            <div style="margin-bottom: 15px;">
                 <label for="name" style="display: block; width: 100%;">Name:</label>
-                <input type="text" id="name" name="name" style="display: block; width: 100%;height: 30px">
+                <input type="text" id="name" name="name" style="display: block; width: 100%; height: 30px;">
             </div>
-        
-            <div style="margin-bottom: 15px;margin-top: 30px;">
+            <div style="margin-bottom: 15px;">
                 <label for="email" style="display: block; width: 100%;">Email:</label>
-                <input type="text" id="email" name="email" style="display: block; width: 100%;height: 30px">
+                <input type="text" id="email" name="email" style="display: block; width: 100%; height: 30px;">
             </div>
-        
-            <div style="margin-bottom: 15px;margin-top: 30px;">
-                <label for="phoneNumber" style="display: block; width: 100%;">Phone Number:</label>
-                <input type="text" id="phoneNumber" name="phoneNumber" style="display: block; width: 100%;height: 30px;">
+            <div style="margin-bottom: 15px;">
+                <label for="phone" style="display: block; width: 100%;">Phone Number:</label>
+                <input type="text" id="phone" name="phone" style="display: block; width: 100%; height: 30px;">
             </div>
-        
-            <div style="margin-bottom: 15px;margin-top: 30px;">
+            <div style="margin-bottom: 15px;">
                 <label for="message" style="display: block; width: 100%;">Message:</label>
-                <input type="text" id="message" name="message" style="display: block; width: 100%;height: 100px;">
+                <textarea id="message" name="message" style="display: block; width: 100%; height: 100px;"></textarea>
             </div>
-            <button style="background-color: green; padding: 12px; border-radius: 20px; color: white;" type="button">
+            <button style="background-color: green; padding: 12px; border-radius: 20px; color: white;" type="submit" name="submit">
                 Submit
             </button>
-        </form>    </div>
-
+        </form>
+    </div>
+    
 
 </section>
     <br><br>
