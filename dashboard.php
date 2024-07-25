@@ -14,6 +14,51 @@ if (isset($_SESSION['login_success'])) {
     echo "<script>alert('Karibu Sana!');</script>";
     unset($_SESSION['login_success']); // Clear the flag
 }
+
+require_once 'php/db.php';
+
+$sql_mhp = "SELECT special AS specialization,
+COUNT(*) AS occurrence_count FROM
+            mhp GROUP BY special ORDER BY occurrence_count DESC";
+//execute the query 
+$result_mhp = $conn->query($sql_mhp);
+$mhp_data=[];
+$mhp_labels=[];
+while ($row = $result_mhp->fetch_assoc()){
+$mhp_data[]= $row['occurrence_count'];
+$mhp_labels[]= $row['specialization'];
+
+}
+
+// Fetching data for the depression rates
+$sql_depression_rate = "SELECT 
+    COUNT(*) AS total_rows,
+    SUM(CASE WHEN status = '1' THEN 1 ELSE 0 END) AS total_depressed 
+    FROM report";
+$result2 = $conn->query($sql_depression_rate);
+
+$drate_data = $result2->fetch_assoc();
+$depression_rate = ($drate_data['total_depressed'] / $drate_data['total_rows']) * 100;
+$depression_rate = round($depression_rate);
+
+
+$sql_c_depression = "SELECT 
+    SUM(q1) AS interest,
+    SUM(q2) AS hoplessness,
+    SUM(q3) AS sleep,
+    SUM(q4) AS energy,
+    SUM(q5) AS appetite,
+    SUM(q6) AS  self_Loathing,
+    SUM(q7) AS concentration,
+    SUM(q8) AS activity
+FROM report;
+";
+$result3 = $conn->query($sql_c_depression);
+$c_depression =$result3->fetch_assoc() ;
+$c_depression_lables=array_keys($c_depression);
+$c_depression_data= array_values($c_depression)
+
+
 ?>
 
 <!DOCTYPE html>
@@ -133,10 +178,10 @@ if (isset($_SESSION['login_success'])) {
                     </div>
                     <section class="section">
                         <div class="row">
-<div class="col-md-5">
+<div class="col-md-6">
 <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">About Vertical Navbar</h4>
+                                <h4 class="card-title">Our MHP's</h4>
                             </div>
                             <div class="card-body">
 <div id="mhps">
@@ -148,13 +193,19 @@ if (isset($_SESSION['login_success'])) {
                         </div>
 </div>
 
-<div  class="col-md-7">
+<div  class="col-md-6">
 <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">About Vertical Navbar</h4>
+                                <h4 class="card-title">Depression rate(submitted assessments)</h4>
                             </div>
                             <div class="card-body">
+<div id="depression-rate">
 
+
+
+
+
+</div>
 
                         </div>
                         </div>
@@ -163,6 +214,30 @@ if (isset($_SESSION['login_success'])) {
 
                         </div>
                         
+                        <div class="row">
+
+                        <div class="col-md-12">
+<div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Cumulative depression Score per question</h4>
+                            </div>
+                            <div class="card-body">
+<div id="cumulative-depression-score">
+</div>
+
+
+                        </div>
+                        </div>
+</div>
+
+
+                    </div>
+
+
+
+
+
+
                     </section>
                 </div>
             </div>
@@ -184,9 +259,9 @@ if (isset($_SESSION['login_success'])) {
     <script src="assets/compiled/js/app.js"></script>
 <script>
 
-    
 var options = {
-          series: [44, 55, 41, 17, 15],
+          series: <?php echo json_encode($mhp_data, JSON_NUMERIC_CHECK)?>,
+          labels : <?=json_encode($mhp_labels); ?>,
           chart: {
           width: 380,
           type: 'donut',
@@ -215,7 +290,8 @@ var options = {
           breakpoint: 480,
           options: {
             chart: {
-              width: 200
+            //   width: 200
+
             },
             legend: {
               position: 'bottom'
@@ -229,6 +305,175 @@ var options = {
       
       
 </script>
+<script>
+var options2 = {
+          series: [<?=$depression_rate;?>],
+          chart: {
+          height: 250,
+          type: 'radialBar',
+          toolbar: {
+            show: true
+          }
+        },
+        plotOptions: {
+          radialBar: {
+            startAngle: -135,
+            endAngle: 225,
+             hollow: {
+              margin: 0,
+              size: '70%',
+              background: '#fff',
+              image: undefined,
+              imageOffsetX: 0,
+              imageOffsetY: 0,
+              position: 'front',
+              dropShadow: {
+                enabled: true,
+                top: 3,
+                left: 0,
+                blur: 4,
+                opacity: 0.24
+              }
+            },
+            track: {
+              background: '#fff',
+              strokeWidth: '67%',
+              margin: 0, // margin is in pixels
+              dropShadow: {
+                enabled: true,
+                top: -3,
+                left: 0,
+                blur: 4,
+                opacity: 0.35
+              }
+            },
+        
+            dataLabels: {
+              show: true,
+              name: {
+                offsetY: -10,
+                show: true,
+                color: '#888',
+                fontSize: '17px'
+              },
+              value: {
+                formatter: function(val) {
+                  return parseInt(val);
+                },
+                color: '#111',
+                fontSize: '36px',
+                show: true,
+              }
+            }
+          }
+        },
+        fill: {
+          type: 'gradient',
+          gradient: {
+            shade: 'dark',
+            type: 'horizontal',
+            shadeIntensity: 0.5,
+            gradientToColors: ['red'],
+            inverseColors: true,
+            opacityFrom: 1,
+            opacityTo: 1,
+            stops: [0, 100]
+          }
+        },
+        stroke: {
+          lineCap: 'round'
+        },
+        labels: ['Percent'],
+        };
+
+        var chart2 = new ApexCharts(document.querySelector("#depression-rate"), options2);
+        chart2.render();
+      
+
+// Cumulative depression score per category 
+var options3 = {
+          series: [{
+            data: <?php echo json_encode($c_depression_data, JSON_NUMERIC_CHECK)?>,
+        }],
+          chart: {
+          type: 'bar',
+          height: 380
+        },
+        plotOptions: {
+          bar: {
+            barHeight: '100%',
+            distributed: true,
+            horizontal: true,
+            dataLabels: {
+              position: 'bottom'
+            },
+          }
+        },
+        colors: ['#33b2df', '#546E7A', '#d4526e', '#13d8aa', '#A5978B', '#2b908f', 
+          '#f48024', '#69d2e7'
+        ],
+        dataLabels: {
+          enabled: true,
+          textAnchor: 'start',
+          style: {
+            colors: ['#fff']
+          },
+          formatter: function (val, opt) {
+            return opt.w.globals.labels[opt.dataPointIndex] + ":  " + val
+          },
+          offsetX: 0,
+          dropShadow: {
+            enabled: true
+          }
+        },
+        stroke: {
+          width: 1,
+          colors: ['#fff']
+        },
+        xaxis: {
+          categories:<?php echo json_encode($c_depression_lables)?>,
+
+          
+        },
+        yaxis: {
+          labels: {
+            show: false
+          }
+        },
+        title: {
+            text: 'Cumulative depression scores based on categories',
+            align: 'center',
+            floating: true
+        },
+        subtitle: {
+            // text: 'Category Names as DataLabels inside bars',
+            align: 'center',
+        },
+        tooltip: {
+          theme: 'dark',
+          x: {
+            show: false
+          },
+          y: {
+            title: {
+              formatter: function () {
+                return ''
+              }
+            }
+          }
+        }
+        };
+
+        var chart3 = new ApexCharts(document.querySelector("#cumulative-depression-score"), options3);
+        chart3.render();
+      
+
+
+
+        </script>
+    
+
+
 
 
 </body>
