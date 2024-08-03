@@ -1,0 +1,3 @@
+Note yourself , Consider using a soft delete when removing the MHPs , also look at Data Migration and use objects to update tables rather than manually updating tables so as to ensure that incase the table scopes increase to maybe 500 and you are to edit a collumn from a table that is linked to other tables then you dont have to access every single table
+Ensure that the session control for admin page is flawless 
+Remove any redundant and obsolute buttons that don't do anything .
